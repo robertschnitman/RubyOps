@@ -1,2 +1,2 @@
 # RS_Ruby
- Collection of personal Ruby methods
+ Collection of personal Ruby methods.

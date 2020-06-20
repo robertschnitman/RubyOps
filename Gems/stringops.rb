@@ -24,7 +24,7 @@ Class Methods
 		2. chompm()       = vectorization of chomp
 		3. matchm()       = vectorization of match
 		4. revm()         = vectorization of reverse
-		5. paste()        = concatenates an array element with another array element, optionally divided by a delimiter.
+		5. paste()        = concatenates an array element with another array element, optionally divided by a separator.
 		6. prefixm()      = vectorization of prefix
 		7. suffixm()      = vectorization of suffix
 		8. stripm()       = vectorization of strip
@@ -93,7 +93,7 @@ end
 class Array
 
 	# gsubm()  = vectorization of gsub
-	def gsub(pattern, replace)
+	def gsubm(pattern, replace)
 
 	  self.map {|x| x.gsub(pattern, replace)}
 	  
@@ -122,9 +122,9 @@ class Array
 		
 	# paste = parallel concatenate each array element with another array element
 	## inspired by R's paste0m() function.
-	def paste(y, delimiter = "") 
+	def paste(y, separator = "") 
 	
-		self.zip(y).map {|x, y| x + delimiter + y}
+		self.zip(y).map {|x, y| x + separator + y}
 		
 	end
 	
