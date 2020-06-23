@@ -12,18 +12,19 @@ require "./"
 
 Class Methods
 	String Methods
-		1. detect() = output true if string mtches a pattern; else, false.
-		2. prefix() = appends a string at the beginning of another string.
-		3. suffix() = appends a string at the end of another string.
-		4. left()   = equivalent to Excel's LEFT().
-		5. right()  = equivalent to Excel's RIGHT().
-		6. mid()    = equivalent to Excel's MID().
+		1. detect()  = output true if string mtches a pattern; else, false.
+		2. prefix()  = appends a string at the beginning of another string.
+		3. suffix()  = appends a string at the end of another string.
+		4. left()    = equivalent to Excel's LEFT().
+		5. right()   = equivalent to Excel's RIGHT().
+		6. mid()     = equivalent to Excel's MID().
+		7. extract() = extract a pattern from a string.
 	
 	Array Methods
 		1. gsubm()        = vectorization of gsub
 		2. chompm()       = vectorization of chomp
 		3. matchm()       = vectorization of match
-		4. revm()         = vectorization of reverse
+		4. reversem()     = vectorization of reverse
 		5. paste()        = concatenates an array element with another array element, optionally divided by a separator.
 		6. prefixm()      = vectorization of prefix
 		7. suffixm()      = vectorization of suffix
@@ -38,7 +39,10 @@ Class Methods
 		16. detectm()     = vectorization of detect
 		17. length()      = vectorization of length
 		18. indexm()      = vectorization of index
-		19. extract()     = return the string of a pattern match; else, nil
+		19. extract()     = vectorization of extract.
+		20. leftm()       = vectorization of left.
+		21. rightm()      = vectorization of right.
+		22. midm()        = vectorization of mid.		
 
 =end
 
@@ -55,14 +59,14 @@ class String
 	# prefix = attach a string to the beginning of another string
 	def prefix(string)
 	
-		string + prefix
+		string + self
 	
 	end
 	
 	# suffix = attach a string to the end of another string.
 	def suffix(string)
 	
-		string + suffix
+		self + string
 	
 	end
 	
@@ -81,11 +85,18 @@ class String
 	end
 			
 	# mid = equivalent to Excel's MID()
-	def mid(start, stop)
+	def mid(start, n)
 	
-		self[start..start + stop]
+		self[start..start + n]
 		
 	end
+	
+	# extract = extract a pattern from a string.
+	def extract(pattern)
+	
+		self[pattern]
+	
+	end	
 	
 	
 end
@@ -113,15 +124,15 @@ class Array
 	   
 	end
 
-	# revm() = vectorization of reverse
-	def revm()
+	# reversem() = vectorization of reverse
+	def reversem()
 
 	  self.map(&:reverse)
 	  
 	end
 		
 	# paste = parallel concatenate each array element with another array element
-	## inspired by R's paste0m() function.
+	## inspired by R's paste0() function.
 	def paste(y, separator = "") 
 	
 		self.zip(y).map {|x, y| x + separator + y}
@@ -220,12 +231,16 @@ class Array
 	end
 	
 	# extract = return the string of a pattern match; else, nil
-	def extract(pattern)
+	def extractm(pattern)
 	
-		self.map{|x| x[pattern]
-		}
+		self.map{|x| x[pattern]}
 	
 	end
+	
+	# leftm, rightm, midm, are vectorized versions of left, right, and mid.
+	def leftm(n) self.map {|x| x.left(n)} end
+	def rightm(n) self.map {|x| x.right(n)} end
+	def midm(start, n) self.map {|x| x.mid(start, n)} end
 
 end
 	
