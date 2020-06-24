@@ -22,7 +22,7 @@ class Array
 		
 	  else
 	   
-	   raise "The proc1 input must be a Proc class object. The class of the object passed was " + proc1.class.to_s + "."
+	   raise "The proc1 input must be a Proc class object. The class of the object passed was #{proc1.class.to_s}."
 	   
 	   # x.map2(y, :+)
 	   
