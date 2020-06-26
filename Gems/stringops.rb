@@ -42,7 +42,8 @@ Class Methods
 		19. extract()     = vectorization of extract.
 		20. leftm()       = vectorization of left.
 		21. rightm()      = vectorization of right.
-		22. midm()        = vectorization of mid.		
+		22. midm()        = vectorization of mid.	
+		23. switch()      = recode an array.
 
 =end
 
@@ -241,6 +242,23 @@ class Array
 	def leftm(n) self.map {|x| x.left(n)} end
 	def rightm(n) self.map {|x| x.right(n)} end
 	def midm(start, n) self.map {|x| x.mid(start, n)} end
+	
+	# switch = recode an array.
+	def switch(initial, new)
+	
+		out = self		
+		
+		range = (0..initial.length - 1).step(1).to_a
+
+		for z in range
+		 
+		  out = out.map {|y| y.gsub(initial[z], new[z])}
+		  
+		end
+		
+		out				
+	
+	end
 
 end
 	
