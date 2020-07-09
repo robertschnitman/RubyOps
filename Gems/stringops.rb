@@ -1,15 +1,13 @@
 =begin
 Author: Robert Schnitman
 Date Created: 2020-06-17
-Date Modified: 2020-06-18
+Date Modified: 2020-07-06
 Decsription: List of functions for
   managing strings, focusing on 
   vectorizing existing methods.
   
   Inspired by the R library stringr.
-
 require "./"
-
 Class Methods
 	String Methods
 		1. detect()  = output true if string mtches a pattern; else, false.
@@ -21,30 +19,31 @@ Class Methods
 		7. extract() = extract a pattern from a string.
 	
 	Array Methods
-		1. gsubm()        = vectorization of gsub
-		2. chompm()       = vectorization of chomp
-		3. matchm()       = vectorization of match
-		4. reversem()     = vectorization of reverse
+		1. gsubv()        = vectorization of gsub.
+		2. chompv()       = vectorization of chomp.
+		3. matchv()       = vectorization of match.
+		4. reversev()     = vectorization of reverse.
 		5. paste()        = concatenates an array element with another array element, optionally divided by a separator.
-		6. prefixm()      = vectorization of prefix
-		7. suffixm()      = vectorization of suffix
-		8. stripm()       = vectorization of strip
-		9. lstripm()      = vectorization of lstrip
-		10. rstripm()	  = vectorization of rstrip	
-		11. upcasem()     = vectorization of upcase
-		12. downcasem()   = vectorization of downcase
-		13. swapcasem()   = vectorization of swapcase
-		14. capitalizem() = vectorization of capitalize
-		15. scanm()       = vectorization of scan
-		16. detectm()     = vectorization of detect
-		17. length()      = vectorization of length
-		18. indexm()      = vectorization of index
-		19. extract()     = vectorization of extract.
-		20. leftm()       = vectorization of left.
-		21. rightm()      = vectorization of right.
-		22. midm()        = vectorization of mid.	
+		6. prefixv()      = vectorization of prefix.
+		7. suffixv()      = vectorization of suffix.
+		8. stripv()       = vectorization of strip.
+		9. lstripv()      = vectorization of lstrip.
+		10. rstripv()	  = vectorization of rstrip.
+		11. upcasev()     = vectorization of upcase.
+		12. downcasev()   = vectorization of downcase.
+		13. swapcasev()   = vectorization of swapcase.
+		14. capitalizev() = vectorization of capitalize.
+		15. scanv()       = vectorization of scan.
+		16. detectv()     = vectorization of detect.
+		17. length()      = vectorization of length.
+		18. indexv()      = vectorization of index.
+		19. extractv()    = vectorization of extract.
+		20. leftv()       = vectorization of left.
+		21. rightv()      = vectorization of right.
+		22. midv()        = vectorization of mid.	
 		23. switch()      = recode an array.
-
+		24. grepl()       = synonym of detectv.
+		
 =end
 
 
@@ -104,35 +103,35 @@ end
 
 class Array
 
-	# gsubm()  = vectorization of gsub
-	def gsubm(pattern, replace)
+	# gsubv()  = vectorization of gsub
+	def gsubv(pattern, replace)
 
 	  self.map {|x| x.gsub(pattern, replace)}
 	  
 	end
 
-	# chompm() = vectorization of chomp
-	def chompm()
+	# chompv() = vectorization of chomp
+	def chompv()
 
 	  self.map(&:chomp)
 	  
 	end
 	 
-	 # matchm() = vectorization of match
+	 # matchv() = vectorization of match
 	 def match(pattern)
 	 
 	   self.map {|x| x.match(pattern)}
 	   
 	end
 
-	# reversem() = vectorization of reverse
-	def reversem()
+	# reversev() = vectorization of reverse
+	def reversev()
 
 	  self.map(&:reverse)
 	  
 	end
 		
-	# paste = parallel concatenate each array element with another array element
+	# paste() = parallel concatenate each array element with another array element
 	## inspired by R's paste0() function.
 	def paste(y, separator = "") 
 	
@@ -140,110 +139,110 @@ class Array
 		
 	end
 	
-	# prefixm = attach a string to the beginning of each array element.
-	def prefixm(string)
+	# prefixv() = attach a string to the beginning of each array element.
+	def prefixv(string)
 	
 		self.map{|x| string + x}
 	
 	end
 	
-	# suffixm = attach a string to the end of each array element
-	def suffixm(string)
+	# suffixv() = attach a string to the end of each array element
+	def suffixv(string)
 	
 		self.map{|x| x + string}
 	
 	end
 	
-	# stripm = vectorization of strip
-	def stripm()
+	# stripv() = vectorization of strip
+	def stripv()
 	
 		self.map(&:strip)
 		
 	end
 	
-	# lstripm = vectorization of lstrip
-	def lstripm()
+	# lstripv() = vectorization of lstrip
+	def lstripv()
 	
 		self.map(&:lstrip)
 		
 	end
 
-	# rstripm = vectorization of rstrip
-	def rstripm()
+	# rstripv() = vectorization of rstrip
+	def rstripv()
 	
 		self.map(&:rstrip)
 		
 	end	
 	
-	# upcasem = vectorization of upcase
-	def upcasem()
+	# upcasev() = vectorization of upcase
+	def upcasev()
 	
 		self.map(&:upcase)
 		
 	end
 	
-	# downcasem = vectorization of downcase
-	def downcasem()
+	# downcasev() = vectorization of downcase
+	def downcasev()
 	
 		self.map(&:downcase)
 		
 	end	
 	
-	# swapcasem = vectorization of swapcase
-	def swapcasem()
+	# swapcasev() = vectorization of swapcase
+	def swapcasev()
 	
 		self.map(&:swapcase)
 		
 	end	
 	
-	# capitalizem = vectorization of capitalize
-	def capitalizem()
+	# capitalizev() = vectorization of capitalize
+	def capitalizev()
 	
 		self.map(&:capitalize)
 		
 	end	
 	
-	# scanm = vectorization of scan
-	def scanm(pattern)
+	# scanv() = vectorization of scan
+	def scanv(pattern)
 	
 		self.map{|x| x.scan(pattern)}
 		
 	end
 	
-	# detectm = vectorization of detect
-	def detectm(pattern)
+	# detectv() = vectorization of detect
+	def detectv(pattern)
 	
 		self.map {|x| x.detect(pattern)}
 		
 	end
 	
-	# length = vectorization of length
-	def lengthm()
+	# lengthv() = vectorization of length
+	def lengthv()
 	
 		self.map(&:length)
 		
 	end
 	
-	# indexm = vectorization of index
-	def indexm(pattern)
+	# indexv() = vectorization of index
+	def indexv(pattern)
 	
 		self.map {|x| x.index(pattern)}
 		
 	end
 	
-	# extract = return the string of a pattern match; else, nil
-	def extractm(pattern)
+	# extractv() = return the string of a pattern match; else, nil
+	def extractv(pattern)
 	
 		self.map{|x| x[pattern]}
 	
 	end
 	
-	# leftm, rightm, midm, are vectorized versions of left, right, and mid.
-	def leftm(n) self.map {|x| x.left(n)} end
-	def rightm(n) self.map {|x| x.right(n)} end
-	def midm(start, n) self.map {|x| x.mid(start, n)} end
+	# leftv(), rightv(), midv(), are vectorized versions of left, right, and mid.
+	def leftv(n) self.map {|x| x.left(n)} end
+	def rightv(n) self.map {|x| x.right(n)} end
+	def midv(start, n) self.map {|x| x.mid(start, n)} end
 	
-	# switch = recode an array.
+	# switch() = recode an array.
 	def switch(initial, new)
 	
 		out = self		
@@ -259,6 +258,12 @@ class Array
 		out				
 	
 	end
+	
+	# grepl() = synonym of detectv.
+	def grepl(pattern)
+	
+		self.map {|x| x.match?(pattern)}
+		
+	end
 
 end
-	
