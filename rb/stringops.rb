@@ -1,48 +1,50 @@
 =begin
 Author: Robert Schnitman
 Date Created: 2020-06-17
-Date Modified: 2020-07-06
+Date Modified: 2020-07-16
 Decsription: List of functions for
   managing strings, focusing on 
   vectorizing existing methods.
   
   Inspired by the R library stringr.
+  
 require "./"
+
 Class Methods
 	String Methods
-		1. detect()  = output true if string mtches a pattern; else, false.
-		2. prefix()  = appends a string at the beginning of another string.
-		3. suffix()  = appends a string at the end of another string.
-		4. left()    = equivalent to Excel's LEFT().
-		5. right()   = equivalent to Excel's RIGHT().
-		6. mid()     = equivalent to Excel's MID().
+		1. detect() = output true if string mtches a pattern; else, false.
+		2. prefix() 	= appends a string at the beginning of another string.
+		3. suffix()  	= appends a string at the end of another string.
+		4. left()    	= equivalent to Excel's LEFT().
+		5. right()   	= equivalent to Excel's RIGHT().
+		6. mid()		= equivalent to Excel's MID().
 		7. extract() = extract a pattern from a string.
 	
 	Array Methods
-		1. gsubv()        = vectorization of gsub.
-		2. chompv()       = vectorization of chomp.
-		3. matchv()       = vectorization of match.
-		4. reversev()     = vectorization of reverse.
-		5. paste()        = concatenates an array element with another array element, optionally divided by a separator.
-		6. prefixv()      = vectorization of prefix.
-		7. suffixv()      = vectorization of suffix.
-		8. stripv()       = vectorization of strip.
-		9. lstripv()      = vectorization of lstrip.
-		10. rstripv()	  = vectorization of rstrip.
-		11. upcasev()     = vectorization of upcase.
-		12. downcasev()   = vectorization of downcase.
-		13. swapcasev()   = vectorization of swapcase.
-		14. capitalizev() = vectorization of capitalize.
-		15. scanv()       = vectorization of scan.
-		16. detectv()     = vectorization of detect.
-		17. length()      = vectorization of length.
-		18. indexv()      = vectorization of index.
-		19. extractv()    = vectorization of extract.
-		20. leftv()       = vectorization of left.
-		21. rightv()      = vectorization of right.
-		22. midv()        = vectorization of mid.	
-		23. switch()      = recode an array.
-		24. grepl()       = synonym of detectv.
+		1. gsubv()			= vectorization of gsub.
+		2. chompv()		= vectorization of chomp.
+		3. matchv()      	= vectorization of match.
+		4. reversev()    	= vectorization of reverse.
+		5. paste()			= concatenates an array element with another array element, optionally divided by a separator.
+		6. prefixv() 		= vectorization of prefix.
+		7. suffixv()			= vectorization of suffix.
+		8. stripv()			= vectorization of strip.
+		9. lstripv()      	= vectorization of lstrip.
+		10. rstripv()	  	= vectorization of rstrip.
+		11. upcasev()		= vectorization of upcase.
+		12. downcasev()	= vectorization of downcase.
+		13. swapcasev()	= vectorization of swapcase.
+		14. capitalizev() 	= vectorization of capitalize.
+		15. scanv()       	= vectorization of scan.
+		16. detectv()     	= vectorization of detect.
+		17. length()      	= vectorization of length.
+		18. indexv()      	= vectorization of index.
+		19. extractv()    	= vectorization of extract.
+		20. leftv()       	= vectorization of left.
+		21. rightv()      	= vectorization of right.
+		22. midv()        	= vectorization of mid.	
+		23. switch()      	= recode an array.
+		24. grepl()       	= synonym of detectv.
 		
 =end
 
