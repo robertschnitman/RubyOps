@@ -18,7 +18,8 @@ Class Methods
 		4. left()    	= equivalent to Excel's LEFT().
 		5. right()   	= equivalent to Excel's RIGHT().
 		6. mid()		= equivalent to Excel's MID().
-		7. extract() = extract a pattern from a string.
+		7. extract()    = extract a pattern from a string.
+		8. titlecase()  = capitalize each word in a string.
 	
 	Array Methods
 		1. gsubv()			= vectorization of gsub.
@@ -45,6 +46,7 @@ Class Methods
 		22. midv()        	= vectorization of mid.	
 		23. switch()      	= recode an array.
 		24. grepl()       	= synonym of detectv.
+		25. titlecasev()    = vectorization of titlecase.
 		
 =end
 
@@ -58,7 +60,7 @@ class String
 		
 	end
 	
-	# prefix = attach a string to the beginning of another string
+	# prefix = attach a string to the beginning of another strin
 	def prefix(string)
 	
 		string + self
@@ -99,7 +101,13 @@ class String
 		self[pattern]
 	
 	end	
-	
+
+	# titlecase = capitalize each word in a string
+	def titlecase()
+
+		self.split(" ").map {|x| x.capitalize}.join(" ")
+
+	end
 	
 end
 
@@ -266,6 +274,13 @@ class Array
 	
 		self.map {|x| x.match?(pattern)}
 		
+	end
+
+	# titlecasev() = vectorization of titlecase.
+	def titlecasev
+
+		self.map {|x| x.titlecase}
+
 	end
 
 end
