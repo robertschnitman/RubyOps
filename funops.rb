@@ -1,10 +1,4 @@
-=begin
-Author: Robert Schnitman
-Date: 2020-06-23
-Description: Collection of higher-order
-  functions/methods.
-
-=end
+# Higher-order functions/methods.
 
 class Array
 

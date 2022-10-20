@@ -1,3 +1,5 @@
+# Math methods
+
 class Array
 
 	def product()
@@ -18,6 +20,7 @@ class Array
 		
 	end
 	
+	# "Inverse sum"
 	def invsum()
 	
 		self.subtract

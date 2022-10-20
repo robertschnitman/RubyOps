@@ -1,14 +1,6 @@
 =begin
-Author: Robert Schnitman
-Date Created: 2020-06-17
-Date Modified: 2020-07-16
-Decsription: List of functions for
-  managing strings, focusing on 
-  vectorizing existing methods.
-  
-  Inspired by the R library stringr.
-  
-require "./"
+
+Vectorized functions/methods for parsing strings.
 
 Class Methods
 	String Methods
@@ -23,18 +15,18 @@ Class Methods
 	
 	Array Methods
 		1. gsubv()			= vectorization of gsub.
-		2. chompv()		= vectorization of chomp.
+		2. chompv()		    = vectorization of chomp.
 		3. matchv()      	= vectorization of match.
 		4. reversev()    	= vectorization of reverse.
 		5. paste()			= concatenates an array element with another array element, optionally divided by a separator.
 		6. prefixv() 		= vectorization of prefix.
-		7. suffixv()			= vectorization of suffix.
+		7. suffixv()		= vectorization of suffix.
 		8. stripv()			= vectorization of strip.
 		9. lstripv()      	= vectorization of lstrip.
 		10. rstripv()	  	= vectorization of rstrip.
 		11. upcasev()		= vectorization of upcase.
-		12. downcasev()	= vectorization of downcase.
-		13. swapcasev()	= vectorization of swapcase.
+		12. downcasev()	    = vectorization of downcase.
+		13. swapcasev()	    = vectorization of swapcase.
 		14. capitalizev() 	= vectorization of capitalize.
 		15. scanv()       	= vectorization of scan.
 		16. detectv()     	= vectorization of detect.
@@ -60,7 +52,7 @@ class String
 		
 	end
 	
-	# prefix = attach a string to the beginning of another strin
+	# prefix = attach a string to the beginning of another string.
 	def prefix(string)
 	
 		string + self
